@@ -19,7 +19,7 @@
     "emitDecoratorMetadata": true,
     "paths": {
       "@app/*": ["app/*"],
-      "@shared/*": ["app/shared/*"],
+      "@shared/*": ["app/shared/*"]
     }
   },
   "include": ["src/**/*"],

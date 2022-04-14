@@ -3,7 +3,7 @@ import { iStorage, iTrasactions } from "@app/shared/interfaces";
 export class RedisLogic {
   private storage: iStorage[]
   private transactions: iTrasactions[][]
-  private transactionActive: boolean
+  public transactionActive: boolean
 
   constructor() {
     this.storage = []

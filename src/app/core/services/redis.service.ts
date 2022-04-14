@@ -1,5 +1,7 @@
+import { inputHandler } from "@app/shared/helpers";
 import { iDefaultInput } from "@app/shared/interfaces";
 import { RedisLogic } from "../domain/redis.logic";
+
 
 export class RedisFacade {
   private redisLogic: RedisLogic
@@ -8,43 +10,43 @@ export class RedisFacade {
     this.redisLogic = redisLogic
   }
 
-  set(input: iDefaultInput): void {
-    const { key, value } = input
+  set(input: string[]): void {
+    const { key, value } = inputHandler(input).set()
 
     this.redisLogic.set({ key, value })
   }
 
-  get(input: iDefaultInput): string {
-    const { key } = input
+  get(input: string[]): string {
+    const { key } = inputHandler(input).get()
 
     const value = this.redisLogic.get(key)
 
     return value
   }
 
-  unset(input: iDefaultInput): void {
-    const { key } = input
+  unset(input: string[]): void {
+    const { key } = inputHandler(input).unset()
 
     this.redisLogic.remove(key)
   }
 
-  numequalto(input: iDefaultInput): number {
-    const { key: value } = input
-
+  numequalto(input: string[]): number {
+    const { value } = inputHandler(input).numequalto()
+    
     const countValues = this.redisLogic.count(value)
 
     return countValues
   }
 
-  begin(input: iDefaultInput): void {
+  begin(input: string[]): void {
     this.redisLogic.initTrasnsaction()
   }
 
-  commit(input: iDefaultInput): void {
+  commit(input: string[]): void {
     this.redisLogic.commitTrasnsaction()
   }
 
-  rollback(input: iDefaultInput): void {
+  rollback(input: string[]): void {
     this.redisLogic.rollback()
   }
 }
