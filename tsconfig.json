@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "listFiles": true,
+    "locale": "pt-BR",
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "target": "es6",
+    "module": "commonjs",
+    "allowJs": false,
+    "outDir": "dist",
+    "rootDir": "src",
+    "removeComments": true,
+    "noImplicitAny": true,
+    "moduleResolution": "node",
+    "baseUrl": "src",
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "paths": {
+      "@app/*": ["app/*"],
+      "@shared/*": ["app/shared/*"],
+    }
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
+}
