@@ -11,14 +11,7 @@ export class RedisFacade {
   set(input: iDefaultInput): void {
     const { key, value } = input
 
-    const keyAlreadyExists = this.redisLogic.get(key)
-
-    if(keyAlreadyExists) {
-      this.redisLogic.replace({ key, value })
-      return
-    }
-
-    this.redisLogic.create({ key, value })
+    this.redisLogic.set({ key, value })
   }
 
   get(input: iDefaultInput): string {
@@ -32,12 +25,6 @@ export class RedisFacade {
   unset(input: iDefaultInput): void {
     const { key } = input
 
-    const keyExists = this.redisLogic.get(key)
-
-    if(!keyExists) {
-      throw new Error('register does not exists')
-    }
-
     this.redisLogic.remove(key)
   }
 
@@ -47,5 +34,17 @@ export class RedisFacade {
     const countValues = this.redisLogic.count(value)
 
     return countValues
+  }
+
+  begin(input: iDefaultInput): void {
+    this.redisLogic.initTrasnsaction()
+  }
+
+  commit(input: iDefaultInput): void {
+    this.redisLogic.commitTrasnsaction()
+  }
+
+  rollback(input: iDefaultInput): void {
+    this.redisLogic.rollback()
   }
 }
