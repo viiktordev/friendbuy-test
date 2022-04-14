@@ -1,7 +1,7 @@
 # friendbuy-test
 
 ### **Resume**
-This is a technical test to [friendbuy](https://www.friendbuy.com/) that consists in a Redis funcionalities clone
+This is a technical test to [Friendbuy](https://www.friendbuy.com/) that consists in a Redis funcionalities clone
 
 
 ### **How to use?**
